@@ -11,6 +11,9 @@ const Header = () => (
     </nav>
 
     <hr />
+    <div>
+    Logo E-trade web app
+    </div>
   </header>
 );
 
