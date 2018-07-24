@@ -4,48 +4,48 @@ const UserSession = require('../../models/UserSession');
 // //TODO: Do CORS overhere todo whitelisting -- for security reasons
 module.exports = (app) => {
 
-app.post('/api/account/signup', (req,res,next) => {
-  const {body} = req;
-  const {
-    firstName,
-    lastName,
-    password
-  } = body;
-  let {
-    email
-  } = body;
+  app.post('/api/account/signup', (req,res,next) => {
+    const {body} = req;
+    const {
+      firstName,
+      lastName,
+      password
+    } = body;
+    let {
+      email
+    } = body;
 
-  if(!firstName){
-    return res.send({
-      success: false,
-      message: 'Error: First Name can not be blank.'
-    });
-  }
-  if(!lastName){
-    return res.send({
-      success: false,
-      message: 'Error: Last Name can not be blank.'
-    });
-  }
-  if(!email){
-    return res.send({
-      success: false,
-      message: 'Error: email can not be blank.'
-    });
-  }
-  if(!password){
-    return res.send({
-      success: false,
-      message: 'Error: Password can not be blank.'
-    });
-  }
+    if(!firstName){
+      return res.send({
+        success: false,
+        message: 'Error: First Name can not be blank.'
+      });
+    }
+    if(!lastName){
+      return res.send({
+        success: false,
+        message: 'Error: Last Name can not be blank.'
+      });
+    }
+    if(!email){
+      return res.send({
+        success: false,
+        message: 'Error: email can not be blank.'
+      });
+    }
+    if(!password){
+      return res.send({
+        success: false,
+        message: 'Error: Password can not be blank.'
+      });
+    }
 
-  email = email.toLowerCase();
+    email = email.toLowerCase();
   // valudate email address is a valid email
 // check if user exists
-    User.find({
-    email: email
-  }, (err, previousUsers) => {
+      User.find({
+        email: email
+      }, (err, previousUsers) => {
     if(err){
       return res.send({
         success: false,
@@ -82,5 +82,6 @@ app.post('/api/account/signup', (req,res,next) => {
     });
 
   });
-}
+
+  });
 }
