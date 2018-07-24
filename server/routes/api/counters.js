@@ -1,5 +1,5 @@
 const Counter = require('../../models/Counter');
-
+//TODO: Do CORS overhere todo whitelisting -- for security reasons
 module.exports = (app) => {
   app.get('/api/counters', (req, res, next) => {
     Counter.find()
